@@ -1,0 +1,196 @@
+.app-header {
+  background: #1a1f2e;
+  border-bottom: 1px solid #2d3748;
+  height: 60px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.back-btn {
+  background: #2d3748;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-btn:hover {
+  background: #4a5568;
+  transform: translateY(-1px);
+}
+
+.back-icon {
+  font-size: 1rem;
+  color: #a0aec0;
+  font-weight: 600;
+}
+
+.app-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: #ffffff;
+  letter-spacing: -0.025em;
+}
+
+.logo-icon {
+  font-size: 1.25rem;
+}
+
+.logo-text {
+  font-weight: 800;
+  background: linear-gradient(135deg, #4299e1 0%, #667eea 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: #2d3748;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #a0aec0;
+}
+
+.user-icon {
+  font-size: 0.875rem;
+}
+
+.user-name {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.header-broker-info {
+  display: flex;
+  align-items: center;
+  /* gap: 8px; */
+  padding: 6px 12px;
+  background: #2d3748;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  flex-direction: row;
+}
+
+.broker-logo {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  border-radius: 3px;
+}
+
+.broker-name {
+  color: #a0aec0;
+  font-weight: 500;
+}
+
+.logout-btn {
+  background: #2d3748;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logout-btn:hover {
+  background: #4a5568;
+  transform: translateY(-1px);
+}
+
+.logout-icon {
+  font-size: 0.875rem;
+  color: #a0aec0;
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    padding: 0 16px;
+  }
+
+  .app-logo {
+    font-size: 1rem;
+  }
+
+  .logo-text {
+    display: none;
+  }
+
+  .header-right {
+    gap: 12px;
+  }
+
+  .user-info,
+  .broker-info {
+    padding: 4px 8px;
+    font-size: 0.75rem;
+  }
+
+  .broker-logo {
+    width: 16px;
+    height: 16px;
+  }
+
+  .logout-btn,
+  .back-btn {
+    padding: 4px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-header {
+    height: 50px;
+  }
+
+  .header-content {
+    padding: 0 12px;
+  }
+
+  .user-name {
+    display: none;
+  }
+
+  .broker-name {
+    display: none;
+  }
+}

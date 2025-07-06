@@ -1,0 +1,153 @@
+.fab-container {
+  position: fixed;
+  z-index: 1500;
+  transition: all 0.3s ease;
+}
+
+.fab-main {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  cursor: pointer;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(59, 130, 246, 0.08);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  user-select: none;
+  backdrop-filter: blur(10px);
+}
+
+.fab-main:hover {
+  transform: scale(1.1);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(59, 130, 246, 0.2);
+}
+
+.fab-main.dragging {
+  transform: scale(1.05);
+  box-shadow: 
+    0 16px 48px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(59, 130, 246, 0.3);
+}
+
+.fab-option {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  user-select: none;
+  backdrop-filter: blur(10px);
+}
+
+.fab-option.buy {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  left: 5px;
+  bottom: 70px;
+}
+
+.fab-option.sell {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  left: 5px;
+  bottom: 130px;
+}
+
+.fab-option:hover {
+  transform: scale(1.1);
+  box-shadow: 
+    0 12px 32px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.fab-option.buy:hover {
+  box-shadow: 
+    0 12px 32px rgba(16, 185, 129, 0.4),
+    0 0 0 1px rgba(16, 185, 129, 0.3);
+}
+
+.fab-option.sell:hover {
+  box-shadow: 
+    0 12px 32px rgba(239, 68, 68, 0.4),
+    0 0 0 1px rgba(239, 68, 68, 0.3);
+}
+
+.fab-icon {
+  display: block;
+  margin-bottom: 2px;
+}
+
+.fab-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Animation for expanding */
+.fab-container.expanded .fab-option {
+  animation: fabExpand 0.3s ease forwards;
+}
+
+.fab-container.expanded .fab-option.buy {
+  animation-delay: 0.1s;
+}
+
+.fab-container.expanded .fab-option.sell {
+  animation-delay: 0.2s;
+}
+
+@keyframes fabExpand {
+  0% {
+    opacity: 0;
+    transform: scale(0) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .fab-main {
+    width: 55px;
+    height: 55px;
+    font-size: 1.3rem;
+  }
+  
+  .fab-option {
+    width: 45px;
+    height: 45px;
+    font-size: 1rem;
+  }
+  
+  .fab-label {
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .fab-container {
+    left: 10px !important;
+    right: auto;
+  }
+} 

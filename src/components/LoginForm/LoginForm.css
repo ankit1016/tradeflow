@@ -1,0 +1,579 @@
+.login-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0e1a 0%, #1a1f2e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.login-card {
+  background: #1a1f2e;
+  border-radius: 12px;
+  padding: 32px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid #2d3748;
+}
+
+.login-header {
+  background: linear-gradient(
+    135deg,
+    rgba(16, 23, 38, 0.97) 0%,
+    rgba(24, 32, 54, 0.98) 100%
+  );
+  border-radius: 20px 20px 0 0;
+  padding: 24px 28px 16px 28px;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(59, 130, 246, 0.1);
+  margin-bottom: 0;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #4299e1;
+  font-size: 0.875rem;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.back-btn:hover {
+  color: #3182ce;
+}
+
+.broker-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+  margin-top: 10px;
+}
+
+.broker-logo {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: #2d3748;
+  padding: 8px;
+  flex-shrink: 0;
+}
+
+.broker-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.broker-details {
+  flex: 1;
+}
+
+.broker-details h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 4px 0;
+  letter-spacing: -0.025em;
+}
+
+.broker-details p {
+  font-size: 0.875rem;
+  color: #a0aec0;
+  margin: 0;
+  font-weight: 400;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 0.875rem;
+  letter-spacing: 0.025em;
+}
+
+.form-group input {
+  padding: 12px 16px;
+  border: 1px solid #4a5568;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  background: #2d3748;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.form-group input::placeholder {
+  color: #718096;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+}
+
+.error-message {
+  background-color: #2d3748;
+  color: #f56565;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  border: 1px solid #4a5568;
+  border-left: 4px solid #f56565;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.error-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.error-text {
+  flex: 1;
+}
+
+/* Specific error type styling */
+.validation-error {
+  border-left-color: #ed8936;
+  color: #ed8936;
+}
+
+.server-error {
+  border-left-color: #e53e3e;
+  color: #e53e3e;
+}
+
+.network-error {
+  border-left-color: #3182ce;
+  color: #3182ce;
+}
+
+/* Error animation */
+.error-message {
+  animation: errorShake 0.5s ease-in-out;
+}
+
+@keyframes errorShake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-4px);
+  }
+  75% {
+    transform: translateX(4px);
+  }
+}
+
+/* Success message styling */
+.success-message {
+  background-color: #2d3748;
+  color: #48bb78;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  border: 1px solid #4a5568;
+  border-left: 4px solid #48bb78;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: successPulse 0.5s ease-in-out;
+}
+
+.success-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.success-text {
+  flex: 1;
+}
+
+@keyframes successPulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Loading spinner animation */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+  font-size: 1rem;
+  display: inline-block;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.login-btn {
+  background: linear-gradient(135deg, #4299e1 0%, #667eea 100%);
+  color: white;
+  border: none;
+  padding: 0 32px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 8px 32px rgba(66, 153, 225, 0.3),
+    0 0 20px rgba(66, 153, 225, 0.1);
+  position: relative;
+  overflow: hidden;
+  margin-top: 12px;
+  min-height: 52px;
+  height: 52px;
+  min-width: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  line-height: 1.2;
+  box-sizing: border-box;
+}
+
+.login-btn span,
+.login-btn .loading-spinner,
+.login-btn .success-icon {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-sizer {
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+  white-space: nowrap;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.login-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.login-btn:hover:not(:disabled) {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(66, 153, 225, 0.4),
+    0 0 30px rgba(66, 153, 225, 0.2);
+}
+
+.login-btn:hover::before {
+  left: 100%;
+}
+
+.login-btn:active {
+  transform: translateY(-2px) scale(1.01);
+}
+
+.login-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.login-btn span,
+.login-btn svg {
+  position: relative;
+  z-index: 2;
+}
+
+.login-footer {
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid #2d3748;
+  text-align: center;
+}
+
+.login-footer p {
+  color: #a0aec0;
+  font-size: 0.875rem;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.demo-credentials {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.credential-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #2d3748;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+}
+
+.credential-label {
+  color: #a0aec0;
+  font-weight: 500;
+}
+
+.credential-value {
+  color: #ffffff;
+  font-weight: 600;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.broker-logo-placeholder {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #4299e1 0%, #667eea 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 24px 20px;
+  }
+
+  .broker-info {
+    gap: 12px;
+  }
+
+  .broker-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .broker-details h2 {
+    font-size: 1.125rem;
+  }
+
+  .broker-details p {
+    font-size: 0.8rem;
+  }
+}
+
+.premium-glass {
+  background: linear-gradient(
+    135deg,
+    rgba(16, 23, 38, 0.97) 0%,
+    rgba(24, 32, 54, 0.98) 100%
+  );
+  backdrop-filter: blur(18px);
+  border: 1.5px solid rgba(59, 130, 246, 0.13);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(30, 41, 59, 0.28),
+    0 0 0 1.5px rgba(59, 130, 246, 0.08);
+  padding: 0 !important;
+  max-width: 370px;
+  overflow: hidden;
+}
+
+.broker-logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: rgba(59, 130, 246, 0.1);
+  margin: 0 auto 12px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.08);
+}
+
+.broker-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.broker-details h2 {
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 4px 0;
+  letter-spacing: -0.01em;
+}
+
+.broker-details p {
+  font-size: 0.98rem;
+  color: #cbd5e1;
+  margin: 0;
+  font-weight: 500;
+}
+
+.demo-credentials-inline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 999px;
+  padding: 4px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #3b82f6;
+  margin: 0 auto 14px auto;
+  width: fit-content;
+  box-shadow: none;
+}
+
+.demo-label {
+  color: #a0aec0;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.demo-value {
+  color: #4299e1;
+  font-weight: 600;
+  font-family: "Courier New", monospace;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px 28px 28px 28px;
+  background: none;
+}
+
+.form-group label {
+  font-weight: 700;
+  color: #cbd5e1;
+  font-size: 0.93rem;
+  letter-spacing: 0.01em;
+  margin-bottom: 3px;
+}
+
+.form-group input {
+  padding: 11px 15px;
+  border: 1.2px solid rgba(59, 130, 246, 0.1);
+  border-radius: 10px;
+  font-size: 0.98rem;
+  background: rgba(59, 130, 246, 0.06);
+  color: #fff;
+  transition: all 0.18s;
+  box-shadow: 0 1px 4px rgba(59, 130, 246, 0.03);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background: rgba(59, 130, 246, 0.13);
+  box-shadow: 0 0 0 2px #3b82f6, 0 1px 4px rgba(59, 130, 246, 0.06);
+}
+
+.form-group input::placeholder {
+  color: #7b8db0;
+}
+
+.error-message {
+  background: rgba(239, 68, 68, 0.13);
+  color: #ef4444;
+  padding: 9px 14px;
+  border-radius: 9px;
+  font-size: 0.93rem;
+  border: 1.2px solid rgba(239, 68, 68, 0.15);
+  margin-bottom: 7px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #3b82f6;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 0px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.18s;
+}
+
+.back-btn:hover {
+  color: #60a5fa;
+}
+
+/* Test information styling */
+.test-info {
+  background: rgba(66, 153, 225, 0.1);
+  border: 1px solid rgba(66, 153, 225, 0.2);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 16px 0;
+  font-size: 0.75rem;
+}
+
+.test-label {
+  color: #4299e1;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.test-details {
+  color: #a0aec0;
+  line-height: 1.4;
+  display: block;
+}
