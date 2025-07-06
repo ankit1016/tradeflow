@@ -368,7 +368,7 @@ const Holdings = ({ onStockSelect, onStocksUpdate }) => {
             <div className="metric-item">
               <span className="metric-label">Market Cap:</span>
               <span className="metric-value">
-                {formatCurrency(totalMarketCap)}
+                {formatNumber(totalMarketCap)}
               </span>
             </div>
             <div className="metric-item">
