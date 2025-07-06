@@ -4,10 +4,10 @@ import "./Toast.css";
 const Toast = ({ message, type = "success", isVisible, onClose }) => {
   useEffect(() => {
     if (isVisible) {
-      const timer = setTimeout(() => {
-        onClose();
-      }, 3000); // Auto close after 3 seconds
-      return () => clearTimeout(timer);
+      // const timer = setTimeout(() => {
+      //   onClose();
+      // }, 3000); // Auto close after 3 seconds
+      // return () => clearTimeout(timer);
     }
   }, [isVisible, onClose]);
 
