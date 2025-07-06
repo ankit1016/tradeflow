@@ -19,6 +19,7 @@ import OrderPad from "./components/BuySellModal/OrderPad";
 import FloatingActionButton from "./components/common/ActionButton/FloatingActionButton";
 import Footer from "./components/common/Footer/Footer";
 import "./App.css";
+import Toast from "./components/Toast/Toast";
 
 // Main App Component with Routes
 function AppRoutes() {
@@ -37,6 +38,11 @@ function AppRoutes() {
     type: null,
   });
   const [currentStocks, setCurrentStocks] = useState([]);
+  const [toast, setToast] = useState({
+    show: false,
+    message: "",
+    type: "success",
+  });
   const navigate = useNavigate();
 
   const handleGetStarted = () => {
@@ -48,20 +54,15 @@ function AppRoutes() {
   };
 
   const handleBrokerSelection = (broker) => {
-    console.log("Broker selected:", broker); // Debug log
     setSelectedBroker(broker);
-    console.log("Navigating to /login"); // Debug log
     navigate("/login");
   };
 
   const handleLogin = async (brokerId, credentials) => {
     try {
-      console.log("Login attempt with:", { brokerId, credentials }); // Debug log
       const response = await loginUser(brokerId, credentials);
-      console.log("Login response:", response); // Debug log
 
       if (response.status === 200) {
-        console.log("Login successful, setting user:", response.data); // Debug log
         setUser(response.data);
         navigate("/app");
 
@@ -86,7 +87,6 @@ function AppRoutes() {
         throw new Error("An unexpected error occurred. Please try again.");
       }
     } catch (error) {
-      console.error("Login error:", error); // Debug log
       throw error;
     }
   };
@@ -151,6 +151,23 @@ function AppRoutes() {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   });
+
+  // Toast functions
+  const showToast = (message, type = "success") => {
+    setToast({ show: true, message, type });
+  };
+
+  const hideToast = () => {
+    setToast({ show: false, message: "", type: "success" });
+  };
+
+  // Set up global toast function
+  useEffect(() => {
+    window.showToast = showToast;
+    return () => {
+      delete window.showToast;
+    };
+  }, []);
 
   return (
     <div className="app-wrapper">
@@ -260,6 +277,12 @@ function AppRoutes() {
                     stocks={currentStocks}
                   />
                 )}
+                <Toast
+                  message={toast.message}
+                  type={toast.type}
+                  isVisible={toast.show}
+                  onClose={hideToast}
+                />
               </div>
             ) : (
               <Navigate to="/" replace />

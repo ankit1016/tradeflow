@@ -84,6 +84,12 @@ const OrderPad = ({
       if (response.status === 200) {
         onOrderPlaced(response.data);
         onClose();
+        if (window.showToast) {
+          window.showToast(
+            `${orderType} order for ${selectedStock.symbol} placed successfully!`,
+            "success"
+          );
+        }
       } else {
         setError("Failed to place order. Please try again.");
       }
